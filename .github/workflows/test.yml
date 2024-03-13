@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "This is TestA"
+      - run: false
 
   TestB:
     runs-on: ubuntu-latest
