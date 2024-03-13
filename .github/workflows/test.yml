@@ -1,0 +1,25 @@
+on:
+  merge_group:
+  pull_request:
+
+concurrency:
+  group: ${{ github.ref }}
+
+
+jobs:
+  TestA:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is TestA"
+
+  TestB:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is TestB"
+
+  TestC:
+    runs-on: ubuntu-latest
+    needs: [TestA, TestB]
+    steps:
+      - run: echo "This is TestC"
+
